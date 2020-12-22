@@ -30,9 +30,9 @@ Then we will edit the Info.plist file. We will remove the nodes:
 
 Now we will create a new file RooViewController, this will be initial screen:
 
-<image src="images/newFile.png" />
+<image src="images/newFile.png" width=500/>
 
-Then we will edit the file AppDelegate.h, we will add an import and add a propeerty:
+Then we will edit the file AppDelegate.h, we will add an import and add a property:
 
 ````
 #import <UIKit/UIKit.h>
@@ -42,9 +42,24 @@ Then we will edit the file AppDelegate.h, we will add an import and add a propee
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow             *window;
+@property (strong, nonatomic) UIWindow *window;
 @end
 ````
+
+We will also edit the AppDelegate.m:
+```
+#import "RootViewController.h"
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+       _window.rootViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+       
+       [_window makeKeyAndVisible];
+    
+    return YES;
+}
+```
 
 
 
